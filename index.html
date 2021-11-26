@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<title>Clock</title>
+<style>
+#circle {
+  z-index: 0;
+  position: absolute;
+  margin: -210px 0 0 -210px;
+  width: 420px;
+  height: 420px;
+  top: 50%;
+  left: 50%;
+  background: #dddddd;
+  border-radius: 100%;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+}
+#minicircle {
+   z-index: 4;
+  position: absolute;
+  margin: -20px 0 0 -20px;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  background: red;
+  border-radius: 100%;
+}
+#sec {
+  z-index: 5;
+  position: absolute;
+  margin: -200px 0 0 -2px;
+  width: 4px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(red 60%, #00000000 40%);
+  transform: rotate(var(--sec));
+}
+#min {
+  z-index: 2;
+  position: absolute;
+  margin: -200px 0 0 -5px;
+  width: 10px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(black 60%, #00000000 40%);
+  transform: rotate(var(--min));
+}
+#cho {
+  z-index: 3;
+  position: absolute;
+  margin: -150px 0 0 -5px;
+  width: 10px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(green 60%, #00000000 40%);
+  transform: rotate(var(--cho));
+}
+</style>
+</head> 
+<body>
+<div id="circle"></div>
+<div id="minicircle"></div>
+<div id="sec"></div>
+<div id="min"></div>
+<div id="cho"></div>
+<script>
+  var sec = document.getElementById('sec');
+  var min = document.getElementById('min');
+  var cho = document.getElementById('cho');
+
+  function getTime() {
+    sec.style.setProperty('--sec' , new Date().getSeconds() * 6 + 'deg');
+    min.style.setProperty('--min' , new Date().getMinutes() * 6 + 'deg');
+    cho.style.setProperty('--cho' , new Date().getHours() * 15 + 'deg');
+  }
+  getTime();
+
+  setInterval(() => {
+    getTime();
+  }, 1000);
+
+</script>
+</body> 
+</html>
