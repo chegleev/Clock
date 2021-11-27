@@ -4,6 +4,9 @@
 <head>
 <title>Clock</title>
 <style>
+body {
+  background: #8e44ad;
+}
 #circle {
   z-index: 0;
   position: absolute;
@@ -12,7 +15,7 @@
   height: 380px;
   top: 50%;
   left: 50%;
-  background: #dddddd;
+  background: #ecf0f1;
   border-radius: 100%;
 }
 #minicircle {
@@ -23,7 +26,7 @@
   height: 40px;
   top: 50%;
   left: 50%;
-  background: red;
+  background: #e74c3c;
   border-radius: 100%;
 }
 #sec {
@@ -34,7 +37,7 @@
   height: 360px;
   top: 50%;
   left: 50%;
-  background: linear-gradient(red 60%, #00000000 40%);
+  background: linear-gradient(#e74c3c 60%, #00000000 40%);
   transform: rotate(var(--sec));
 }
 #min {
@@ -45,7 +48,7 @@
   height: 360px;
   top: 50%;
   left: 50%;
-  background: linear-gradient(black 60%, #00000000 40%);
+  background: linear-gradient(#2c3e50 60%, #00000000 40%);
   transform: rotate(var(--min));
 }
 #hou {
@@ -56,12 +59,24 @@
   height: 260px;
   top: 50%;
   left: 50%;
-  background: linear-gradient(green 60%, #00000000 40%);
+  background: linear-gradient(#1abc9c 60%, #00000000 40%);
   transform: rotate(var(--hou));
+}
+#line j {
+  z-index: 1;
+  position: absolute;
+  margin: -190px 0 0 -9px;
+  width: 18px;
+  height: 380px;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(to bottom, #3498db 20px, #00000000 20px 360px, #3498db 360px);
+  transform: rotate(var(--lin)) scale(0.93);
 }
 </style>
 </head> 
 <body>
+<div id="line"></div>
 <div id="circle"></div>
 <div id="minicircle"></div>
 <div id="sec"></div>
@@ -71,6 +86,15 @@
   var sec = document.getElementById('sec');
   var min = document.getElementById('min');
   var hou = document.getElementById('hou');
+
+  const section = document.querySelector('#line');
+  const v = (new Array(6)).fill().map(e => (e = document.createElement('j')) && section.appendChild(e) && e);
+  var c = 0;
+
+  for(var i=0; i<6; i++) {
+    v[i].style.setProperty('--lin', c + 'deg');
+    c+=30;
+  }
 
   function getTime() {
     sec.style.setProperty('--sec' , new Date().getSeconds() * 6 + 'deg');
