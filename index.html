@@ -7,9 +7,9 @@
 #circle {
   z-index: 0;
   position: absolute;
-  margin: -190px 0 0 -190px;
-  width: 380px;
-  height: 380px;
+  margin: -210px 0 0 -210px;
+  width: 420px;
+  height: 420px;
   top: 50%;
   left: 50%;
   background: #dddddd;
@@ -32,9 +32,9 @@
 #sec {
   z-index: 5;
   position: absolute;
-  margin: -180px 0 0 -2px;
+  margin: -200px 0 0 -2px;
   width: 4px;
-  height: 360px;
+  height: 400px;
   top: 50%;
   left: 50%;
   background: linear-gradient(red 60%, #00000000 40%);
@@ -43,15 +43,15 @@
 #min {
   z-index: 2;
   position: absolute;
-  margin: -180px 0 0 -5px;
+  margin: -200px 0 0 -5px;
   width: 10px;
-  height: 360px;
+  height: 400px;
   top: 50%;
   left: 50%;
   background: linear-gradient(black 60%, #00000000 40%);
   transform: rotate(var(--min));
 }
-#hou {
+#cho {
   z-index: 3;
   position: absolute;
   margin: -150px 0 0 -5px;
@@ -60,7 +60,7 @@
   top: 50%;
   left: 50%;
   background: linear-gradient(green 60%, #00000000 40%);
-  transform: rotate(var(--hou));
+  transform: rotate(var(--cho));
 }
 </style>
 </head> 
@@ -69,16 +69,16 @@
 <div id="minicircle"></div>
 <div id="sec"></div>
 <div id="min"></div>
-<div id="hou"></div>
+<div id="cho"></div>
 <script>
   var sec = document.getElementById('sec');
   var min = document.getElementById('min');
-  var hou = document.getElementById('hou');
+  var cho = document.getElementById('cho');
 
   function getTime() {
     sec.style.setProperty('--sec' , new Date().getSeconds() * 6 + 'deg');
-    min.style.setProperty('--min' , new Date().getMinutes() * 6 + 'deg');
-    hou.style.setProperty('--hou' , new Date().getHours() * 30 + 'deg');
+    min.style.setProperty('--min' , new Date().getMinutes() * 6 + (new Date().getSeconds() * 6)/60 + 'deg');
+    cho.style.setProperty('--cho' , new Date().getHours() * 30 + (new Date().getMinutes() * 30)/60 + 'deg');
   }
   getTime();
 
