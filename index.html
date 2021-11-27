@@ -62,7 +62,6 @@
 </style>
 </head> 
 <body>
-<audio id="plr" src="snd.mp3" preload="auto"></audio>
 <div id="circle"></div>
 <div id="minicircle"></div>
 <div id="sec"></div>
@@ -73,8 +72,6 @@
   var min = document.getElementById('min');
   var cho = document.getElementById('cho');
 
-  var player = document.getElementById('plr');
-
   function getTime() {
     sec.style.setProperty('--sec' , new Date().getSeconds() * 6 + 'deg');
     min.style.setProperty('--min' , new Date().getMinutes() * 6 + (new Date().getSeconds() * 6)/60 + 'deg');
@@ -83,7 +80,6 @@
   getTime();
 
   setInterval(() => {
-    player.play();
     getTime();
   }, 1000);
 
