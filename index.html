@@ -48,7 +48,7 @@
   background: linear-gradient(black 60%, #00000000 40%);
   transform: rotate(var(--min));
 }
-#cho {
+#hou {
   z-index: 3;
   position: absolute;
   margin: -130px 0 0 -5px;
@@ -57,7 +57,7 @@
   top: 50%;
   left: 50%;
   background: linear-gradient(green 60%, #00000000 40%);
-  transform: rotate(var(--cho));
+  transform: rotate(var(--hou));
 }
 </style>
 </head> 
@@ -66,16 +66,16 @@
 <div id="minicircle"></div>
 <div id="sec"></div>
 <div id="min"></div>
-<div id="cho"></div>
+<div id="hou"></div>
 <script>
   var sec = document.getElementById('sec');
   var min = document.getElementById('min');
-  var cho = document.getElementById('cho');
+  var hou = document.getElementById('hou');
 
   function getTime() {
     sec.style.setProperty('--sec' , new Date().getSeconds() * 6 + 'deg');
     min.style.setProperty('--min' , new Date().getMinutes() * 6 + (new Date().getSeconds() * 6)/60 + 'deg');
-    cho.style.setProperty('--cho' , new Date().getHours() * 30 + (new Date().getMinutes() * 30)/60 + 'deg');
+    hou.style.setProperty('--huo' , new Date().getHours() * 30 + (new Date().getMinutes() * 30)/60 + 'deg');
   }
   getTime();
 
